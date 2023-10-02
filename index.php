@@ -20,9 +20,15 @@
 </head>
 <body>
     <?php   
-        $_SESSION["korrekt"];
-        $_SESSION["g"];
-        echo "Das ist Frage: ".$_SESSION["g"]." von 10 <br>";
+        if(!isset($_SESSION["korrekt"])){
+        $_SESSION["korrekt"] = 0;
+        $_SESSION["g"] = 0;
+        }
+
+        
+        
+        $number = $_SESSION["g"] +1;
+        echo "Das ist Frage: ".$number." von 10 <br>";
 
         $sql = "SELECT * FROM answer ORDER BY ID DESC LIMIT 1;";
         $result = mysqli_query($conn, $sql);
@@ -73,7 +79,6 @@
         
 ?>
 
-
     <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <input class="button" type="submit" name="antwort" value="<?php echo $row['antwort1']; ?>">
     </form>
@@ -89,6 +94,13 @@
     <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <input class="button" type="submit" name="antwort" value="<?php echo $row['antwort4']; ?>">
     </form>
+
+    <meter class="meter" value="<?php echo $_SESSION["g"]; ?>" min="0" max="10">
+        
+    </meter>
+
+
+
     <?php 
     if($_SERVER['REQUEST_METHOD']=="POST"){
     if($_POST['antwort'] == $rowaa['antwort']){

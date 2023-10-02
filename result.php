@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
@@ -18,7 +19,7 @@
     $name = $_SESSION['korrekt'];
     $_SESSION['g'] = 0;
     $_SESSION['korrekt'] = 0;
-    echo "Du hast " .$name. " von 10 richtig";
+    echo "Du hast " .$name. " von 10 richtig <br><br><br>";
     
 ?>
 <form  action="index.php" method="post">
