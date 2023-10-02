@@ -6,3 +6,15 @@
     
 }
 
+input {
+    width: 100%;
+  }
+
+.meter{
+    margin: 3rem;
+    background: var(--background);
+    display: block;
+    margin-bottom: 1em;
+    width: 100%;
+
+}
