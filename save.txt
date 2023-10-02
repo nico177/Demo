@@ -1,0 +1,22 @@
+INSERT INTO questions (frage, antwort, antwort2, antwort3, antwort4)
+    VALUES ('Welcher Berg ist der höchste Berg der Welt?', 'Mount Everest','K2','Mont Blanc','Zugspitze','Mount Everest', 'Der höchste Berg der Welt ist der Mount Everest mit 8849m.'),
+            ('Wie nennst du ein männliches Schwein', 'Stier','Eber','Wildschwein','Ferkel','Eber', 'Die richtige Antwort ist Eber.'),
+            ('Wie viele Oscars gewann der Film Titanic?', '11','7','6', '9','11', 'Der Film gewann insgesamt 90 Auszeichnungen und gewann unteranderem in den Kategorien "Bester Film" und "Bester Filmsong" einen Oscar'),
+            ('Wie heißt der beste Freund von „Harry Potter“?', 'Tom','John','Ronald','Ron','Ron','Die besten Freunde sind Hermine und Ron.'),
+            ('Wann wurde Queen Elisabeth II. zur Königin gekrönt?', '1961','1953','1945','1965','1953', 'Im Alter von 27 wurde Sie 1953 am 2. Juni zur Königin gekrönt.'),
+            ('Aus wie vielen Einzelknochen besteht eine menschliche Hand?', '32','47','35','27','27', 'Sie besteht aus ingesamt 27 Knochen.'),
+            ('Was ist ein Sonett ?', 'eine Gedichtform','eine Sonnenfinsternis','Mondfinsternis', 'ein Orchester','eine Gedichtform','Es ist eine Gedichtsform. Ein bekannter Vertreter wäre zum Beispiel "Sonnet No. 1" von Shakespeare'.),
+            ('Wofür stehen die olympischen Ringe?', 'Sie haben keine Bedeutung','5 Erdteile','die 5 Gründerländer','für sportliche Werte','5 Erdteile', 'Sie stehen für 5 Erdteile: Blau: Europa, Gelb: Asien, Schwarz: Afrika, Grün: Australien, Rot: Amerika'),
+            ('Wer war der erste Präsident der Vereinigten Staaten von Amerika?', 'Theodore Roosevelt','Abraham Lincoln','Thomas Jefferson','George Washington','George Washington', 'George Washington war der erste Präsident der USA.'),
+            ('Wie viele Bundesländer hat Deutschland?', '19','17','16','18','16', 'Deutschland hat 5 neue und 11 alte Bundesländer.'),
+            ('Von wem stammt das Gemälde der Mona Lisa?', 'Van Gogh','Picasso','Michelangelo','Leonardo Da Vinci','Leonardo Da Vinci', Der bekannte Künstler und Erfinder Leonardo Da Vinci malte die Mona Lisa von 1503 bis 1506.),
+            ('Was ist die Haupstand von Australien?', 'Sydney','Canberra','Melbourne','Perth','Canberra','Obwohl Sydney die größte Stadt ist, ist Canberra die Hauptstadt.'),
+            ('Wie heißt Indiens Hauptstadt?', 'Neu-Dheli','Mumbai','Peking','Bangkok','Neu-Dheli', 'Die Hauptsatdt Indiens ist Neu-Dheli.'),
+            ('Wie lautete der frühere Name der Stadt Istanbul?', 'Delphi','Herat','Konstantinopel','Metropolis','Konstantinopel'),
+            ('Wie nennt man die Währung in Russland?', 'Rubel','Euro','Kronen','Zloty','Rubel','Der Rubel ist die offizielle Währung der Russischen Föderation. Ein Euro entspricht ca. 104 Rubel.'),
+            ('Welches ist das höchste Gebäude der Welt?', 'MDR','Burj Khalifa','Eiffelturm','schiefer Turm von Pisa','Burj Khalifa', 'Mit 828m ist der Burj Khalifa das höchste Gebäude der Welt.'),
+            ('Aus welcher Stadt kommen die Beatles?', 'London','Liverpool','Dublin','Glasgow','Liverpool','Die Band wurde in Liverpool gegründet.'),
+            ('Wie viele Planeten hat unser Sonnensystem?', '6','9','7','8','8','Bis 2006 waren es noch 9 Planeten, jedoch wurde Pluto zum Zwergplaneten zurück gestuft'),
+            ('Wer hat Amerika entdeckt?', 'Kolumbus','Magellan','Vasco da Gama','James Cook','Kolumbus', 'Kolumbus entdeckt im Jahr 1492 Amerika.'),
+            ('Wie viele Wochen hat das Jahr?', '45','60','54','52','52','Das Jahr hat 365 Tage und 52 Wochen.');
+
