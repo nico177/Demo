@@ -16,7 +16,7 @@
 
     ?>  
 
-    <h1>Allgemeinwissende Quiz</h1>
+    <h1>Allgemeinwissen Quiz</h1>
 </head>
 <body>
     <?php   
@@ -29,6 +29,13 @@
         
         $number = $_SESSION["g"] +1;
         echo "Das ist Frage: ".$number." von 10 <br>";
+        
+    ?>
+    <meter class="meter" value="<?php echo $_SESSION["g"]; ?>" min="0" max="10">
+        
+        </meter>
+    
+    <?php
 
         $sql = "SELECT * FROM answer ORDER BY ID DESC LIMIT 1;";
         $result = mysqli_query($conn, $sql);
@@ -66,10 +73,16 @@
 
         
 
+        if($_SESSION["g"] == 0){
+            
+        }else{
+            echo "<br> Antwort von der letzten Frage: " .$rowaa['antwort']. " <br><br>";
+            echo $rowaa['texte']. "<br><br>";
+        }
         
-        echo "<br> Antwort von der letzten Frage: " .$rowaa['antwort']. " <br><br>";
-        echo $rowaa['texte']. "<br><br>";
-        echo $row['frage']. "<br><br><br>";
+
+
+        echo "<br>".$row['frage']. "<br><br><br>";
        
 
         
@@ -95,10 +108,7 @@
         <input class="button" type="submit" name="antwort" value="<?php echo $row['antwort4']; ?>">
     </form>
 
-    <meter class="meter" value="<?php echo $_SESSION["g"]; ?>" min="0" max="10">
-        
-    </meter>
-
+    
 
 
     <?php 
