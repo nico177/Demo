@@ -1,3 +1,8 @@
+<?php
+    session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +11,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <?php 
+        
         include_once 'connect.php'
 
     ?>  
@@ -14,17 +20,20 @@
 </head>
 <body>
     <?php   
+        $_SESSION["korrekt"];
+        $_SESSION["g"];
+        echo "Das ist Frage: ".$_SESSION["g"]." von 10 <br>";
+
         $sql = "SELECT * FROM answer ORDER BY ID DESC LIMIT 1;";
         $result = mysqli_query($conn, $sql);
         $rowa = mysqli_fetch_assoc($result); 
         $zahl = $rowa['id'];
-        $frageNummer = $rowa['frageNummer'];
-        $korrekt = $rowa['korrekt'];
+        
 
-        if($frageNummer < 10) {
-            
+        if($_SESSION["g"] > 9) {
+            header("location:result.php");
         }else{
-            echo "Glückwunsch du hast " .$korrekt. " von 10 korrekt!<br><br><br><br><br>";
+           
         }
 
 
@@ -35,24 +44,10 @@
 
         $antwort = $row['antwort'];
 
-        if($frageNummer < 10) {
-            $frageNummer++;
-        }else{
-            $frageNummer = 1;
-            $korrekt = 0;
-            
-            
-        }
-
-
-      
         
-
-
-
         $text = $row['text1'];
 
-        $sql2 = "INSERT INTO answer(antwort, nummer, frageNummer, korrekt, texte) VALUES ('$antwort', '$zahl', '$frageNummer','$korrekt','$text')";
+        $sql2 = "INSERT INTO answer(antwort, nummer,  texte) VALUES ('$antwort', '$zahl','$text')";
         if ($conn->query($sql2) === TRUE) {
             
         } else {
@@ -63,12 +58,11 @@
         $rowaa = mysqli_fetch_assoc($result);    
         
 
-        if($frageNummer == 1){
+        
 
-        }else{
+        
         echo "<br> Antwort von der letzten Frage: " .$rowaa['antwort']. " <br><br>";
         echo $rowaa['texte']. "<br><br>";
-        }
         echo $row['frage']. "<br><br><br>";
        
 
@@ -98,17 +92,12 @@
     <?php 
     if($_SERVER['REQUEST_METHOD']=="POST"){
     if($_POST['antwort'] == $rowaa['antwort']){
-        $korrekt++;
+        $_SESSION["korrekt"]++;
+        $_SESSION["g"]++;
         
-        $sql3 = "UPDATE answer SET korrekt = '$korrekt' WHERE nummer = $zahl;";
-        if ($conn->query($sql3) === TRUE) {
-            
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-            
-            
-        }
     }else{
+        $_SESSION["g"]++;
+        
         
     }
     
