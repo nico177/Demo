@@ -10,7 +10,7 @@
 
     ?>  
 
-    <h1>Allgemeinwisse Quiz</h1>
+    <h1>Allgemeinwissende Quiz</h1>
 </head>
 <body>
     <?php   
