@@ -22,18 +22,27 @@
     <?php   
         if(!isset($_SESSION["korrekt"])){
         $_SESSION["korrekt"] = 0;
-        $_SESSION["g"] = 0;
+        $_SESSION["frageNummer"] = 0;
         }
+
+        if(!isset($_SESSION["array"])){
+            $_SESSION["array"]= array(0);
+            }
+
 
         
         
-        $number = $_SESSION["g"] +1;
+        
+
+
+        
+        
+        
+        $number = $_SESSION["frageNummer"] +1;
         echo "Das ist Frage: ".$number." von 10 <br>";
         
     ?>
-    <meter class="meter" value="<?php echo $_SESSION["g"]; ?>" min="0" max="10">
-        
-        </meter>
+    
     
     <?php
 
@@ -43,21 +52,21 @@
         $zahl = $rowa['id'];
         
 
-        if($_SESSION["g"] > 9) {
+        if($_SESSION["frageNummer"] > 9) {
             header("location:result.php");
         }else{
            
         }
-
-
-        $rand = random_int(1, 20);
-        $sql = "SELECT * FROM questions WHERE id = '$rand';";
+        $array = $_SESSION["array"];
+        $array2 = implode(',', $array);
+        $sql = "SELECT * FROM questions WHERE id NOT IN (".implode(',', $array).") ORDER BY RAND() LIMIT 1";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-
-        $antwort = $row['antwort'];
-
         
+        $antwort = $row['antwort'];
+        $idwert = $row['id'];
+        array_push($array,$idwert);
+        $_SESSION["array"] = $array;
         $text = $row['text1'];
 
         $sql2 = "INSERT INTO answer(antwort, nummer,  texte) VALUES ('$antwort', '$zahl','$text')";
@@ -73,7 +82,7 @@
 
         
 
-        if($_SESSION["g"] == 0){
+        if($_SESSION["frageNummer"] == 0){
             
         }else{
             echo "<br> Antwort von der letzten Frage: " .$rowaa['antwort']. " <br><br>";
@@ -90,24 +99,29 @@
         
 
         
-?>
+?>      
+    <meter class="meter" value="<?php echo $_SESSION["frageNummer"]; ?>" min="0" max="10">
+    </meter>
 
+
+    <div class="fragen">
     <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <input class="button" type="submit" name="antwort" value="<?php echo $row['antwort1']; ?>">
+        <input class="button" id="frage1" type="submit" name="antwort" value="<?php echo $row['antwort1']; ?>">
     </form>
     
     <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <input class="button" type="submit" name="antwort" value="<?php echo $row['antwort2']; ?>">
+        <input class="button" id="frage2" type="submit" name="antwort" value="<?php echo $row['antwort2']; ?>">
     </form>
 
     <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <input class="button" type="submit" name="antwort" value="<?php echo $row['antwort3']; ?>">
+        <input class="button" id="frage3" type="submit" name="antwort" value="<?php echo $row['antwort3']; ?>">
     </form>
 
     <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <input class="button" type="submit" name="antwort" value="<?php echo $row['antwort4']; ?>">
+        <input class="button" id="frage4" type="submit" name="antwort" value="<?php echo $row['antwort4']; ?>">
     </form>
-
+    </div>
+    
     
 
 
@@ -115,10 +129,10 @@
     if($_SERVER['REQUEST_METHOD']=="POST"){
     if($_POST['antwort'] == $rowaa['antwort']){
         $_SESSION["korrekt"]++;
-        $_SESSION["g"]++;
+        $_SESSION["frageNummer"]++;
         
     }else{
-        $_SESSION["g"]++;
+        $_SESSION["frageNummer"]++;
         
         
     }

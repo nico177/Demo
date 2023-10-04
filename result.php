@@ -16,12 +16,28 @@
 </html>
 
 <?php
-    $name = $_SESSION['korrekt'];
-    $_SESSION['g'] = 0;
+    $anzahl = $_SESSION['korrekt'];
+    $_SESSION['frageNummer'] = 0;
     $_SESSION['korrekt'] = 0;
-    echo "Du hast " .$name. " von 10 richtig <br><br><br>";
+    $_SESSION['array'] = array(0);
+    echo "Du hast " .$anzahl. " von 10 richtig <br><br><br>";
+    $cookie_name = "user";
+    setcookie($cookie_name, $anzahl, time() + (86400 * 30), "/");
+
+    if($_COOKIE["$cookie_name"] > $anzahl){
+        echo "Du hast dich leider verschlechtert<br><br>";
+    }elseif($_COOKIE["$cookie_name"] < $anzahl){
+        echo "Glückwunsch! Du hast dich verbessert!<br><br>";
+    }else{
+        echo "Du bist gleich gut geblieben<br><br>";
+    }
+    ?>
     
-?>
+    <p class="result"><?php  echo "Beim letzten Mal hattest du ".$_COOKIE["$cookie_name"]." von 10 richtig";  ?></p>
+
+    
+    
+
 <form  action="index.php" method="post">
         <input class="button" type="submit" name="antwort" value="Neustart">
 </form>
