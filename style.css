@@ -1,20 +1,52 @@
 .button{
-    margin: 10rem;
-    box-shadow: 2rem;
+    margin-right: 2rem;
+    box-shadow: 10px 10px black;
     padding: 3rem;
     background-color: blueviolet;
+    color: white;
+    cursor: pointer;
+    width: 15rem;
+    height: 7rem;
     
 }
 
-input {
-    width: 100%;
-  }
+#frage1{
+    background-color: brown;
+}
+
+#frage2{
+    background-color: orangered;
+}
+
+#frage3{
+    background-color: blueviolet;
+}
+
+#frage4{
+    background-color: green;
+}
 
 .meter{
-    margin: 3rem;
-    background: var(--background);
-    display: block;
-    margin-bottom: 1em;
-    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    width: 30%;
+    color: blueviolet;
+    
+}
 
+.fragen{
+    display: flex;
+    flex-direction: row;
+}
+
+body{
+    margin-top: 4rem;
+    display: grid;   
+    justify-content: center; 
+    align-items: center;
+}
+
+.result{
+    margin-top: 2rem;
+    margin-bottom: 6rem;
 }
