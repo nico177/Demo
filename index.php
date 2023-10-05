@@ -22,7 +22,7 @@
     <?php   
         if(!isset($_SESSION["korrekt"])){
         $_SESSION["korrekt"] = 0;
-        $_SESSION["frageNummer"] = 0;
+        $_SESSION["frageNummer"] = 1;
         }
 
         if(!isset($_SESSION["array"])){
@@ -38,7 +38,7 @@
         
         
         
-        $number = $_SESSION["frageNummer"] +1;
+        $number = $_SESSION["frageNummer"];
         echo "Das ist Frage: ".$number." von 10 <br>";
         
     ?>
@@ -127,12 +127,13 @@
 
     <?php 
     if($_SERVER['REQUEST_METHOD']=="POST"){
+        $_SESSION["frageNummer"]++;
     if($_POST['antwort'] == $rowaa['antwort']){
         $_SESSION["korrekt"]++;
-        $_SESSION["frageNummer"]++;
+        
         
     }else{
-        $_SESSION["frageNummer"]++;
+        
         
         
     }
