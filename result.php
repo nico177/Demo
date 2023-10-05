@@ -17,7 +17,7 @@
 
 <?php
     $anzahl = $_SESSION['korrekt'];
-    $_SESSION['frageNummer'] = 0;
+    $_SESSION['frageNummer'] = 1;
     $_SESSION['korrekt'] = 0;
     $_SESSION['array'] = array(0);
     echo "Du hast " .$anzahl. " von 10 richtig <br><br><br>";
