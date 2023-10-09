@@ -82,7 +82,7 @@
 
         
 
-        if($_SESSION["frageNummer"] == 0){
+        if($_SESSION["frageNummer"] == 1){
             
         }else{
             echo "<br> Antwort von der letzten Frage: " .$rowaa['antwort']. " <br><br>";
