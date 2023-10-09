@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <h2>Ergebnis</h2>
 </body>
 </html>
 
